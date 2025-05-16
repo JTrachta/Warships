@@ -1,0 +1,82 @@
+﻿openapi: 3.0.1
+tags:
+  - name: game
+    description: warships game endpoints
+info:
+  title: warships-app
+  version: v1
+  description: "Simple warships game"
+  contact:
+    name: "Jan.Trachta@outlook.com"
+servers:
+  - url: http://localhost:5187
+    description: Generated server url
+paths:
+  /game/start:
+    post:
+      tags:
+        - game
+      operationId: 'start'
+      summary: 'Start Game'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartGameRequest'
+      responses:
+        "200":
+          description: 'Returns Account oustanding balance'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerResponse'
+  /game/fire:
+    post:
+      tags:
+        - game
+      operationId: 'start'
+      summary: 'Start Game'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartGameRequest'
+      responses:
+        "200":
+          description: 'Returns Account oustanding balance'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerResponse'
+
+components:
+  schemas:
+  # REQUESTS
+    StartGameRequest:
+      type: object
+      properties:
+        namePlayer1:
+          type: string
+        namePlayer2:
+          type: string
+        mapSize:
+          type: integer
+          format: int32
+      additionalProperties: false
+    FireRequest:
+      type: object
+      properties:
+        xPosition:
+          type: integer
+          format: int32
+        yPosition:
+          type: integer
+          format: int32
+      additionalProperties: false
+  # RESPONSES
+    ServerResponse:
+      type: object
+      properties:
+        serverResponseMessage:
+          type: string
+      additionalProperties: false

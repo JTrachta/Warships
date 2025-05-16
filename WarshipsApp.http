@@ -1,0 +1,20 @@
+@WarshipsApp_HostAddress = http://localhost:5267
+
+# WarshipsApp API
+
+### Start a new game
+POST {{WarshipsApp_HostAddress}}/game/start
+Content-Type: application/json
+{
+    "namePlayer1": "Captian Flint",
+    "namePlayer2": "Captian Jack Sparrow",
+    "mapSize": 15
+}
+
+### Fire at a position
+POST {{WarshipsApp_HostAddress}}/game/fire
+Content-Type: application/json
+{
+    "xPosition": 5,
+    "yPosition": 5
+}
